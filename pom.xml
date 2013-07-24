@@ -15,7 +15,7 @@
     <packaging>apk</packaging>
     <name>RobolectricSample app</name>
     <description>Sample project demonstrating use of the Robolectric Android testing project.</description>
-    <url>https://github.com/pivotal/RobolectricSample</url>
+    <url>https://github.com/alwinc/robolectrictest.git</url>
 
     <properties>
         <robolectric.version>2.0</robolectric.version>
@@ -90,7 +90,6 @@
                     <sdk>
                         <!-- platform or api level (api level 4 = platform 1.6)-->
                         <platform>16</platform>
-                        <path>/Users/alwinchin/Development/Android/android-sdk-macosx</path>
                     </sdk>
                     <undeployBeforeDeploy>true</undeployBeforeDeploy>
                 </configuration>
@@ -110,47 +109,119 @@
     </build>
 
     <scm>
-        <url>git@github.com:pivotal/RobolectricSample.git</url>
-        <connection>scm:git:git://github.com/pivotal/RobolectricSample.git</connection>
-        <developerConnection>scm:git:git@github.com:pivotal/RobolectricSample.git</developerConnection>
+        <url>git@github.com:alwinc/robolectrictest.git</url>
+        <connection>scm:git:git://github.com/alwinc/robolectrictest.git</connection>
+        <developerConnection>scm:git:git@github.com:alwinc/robolectrictest.git</developerConnection>
     </scm>
 
-    <developers>
-        <developer>
-            <id>tyler</id>
-            <name>Tyler Schultz</name>
-            <email>tyler@pivotallabs.com</email>
-            <organization>Pivotal Labs</organization>
-            <organizationUrl>http://pivotallabs.com/</organizationUrl>
-            <roles>
-                <role>Project Owner</role>
-                <role>Developer</role>
-            </roles>
-            <timezone>PST/PDT</timezone>
-        </developer>
-        <developer>
-            <id>phil</id>
-            <name>Phil Goodwin</name>
-            <email>phil@pivotallabs.com</email>
-            <organization>Pivotal Labs</organization>
-            <organizationUrl>http://pivotallabs.com/</organizationUrl>
-            <roles>
-                <role>Developer</role>
-            </roles>
-            <timezone>PST/PDT</timezone>
-        </developer>
-        <developer>
-            <id>joemoore</id>
-            <name>Joe Moore</name>
-            <email>joe@pivotallabs.com</email>
-            <organization>Pivotal Labs</organization>
-            <organizationUrl>http://pivotallabs.com/</organizationUrl>
-            <roles>
-                <role>Developer</role>
-            </roles>
-            <timezone>EST/EDT</timezone>
-        </developer>
-    </developers>
+    <!-- ************* Repositories ************* -->
+    <repositories>
+        <repository>
+            <id>alwinc_grouped_releases</id>
+            <name>Alwin Chin Public Release Group Repo</name>
+            <url>http://nexusrepo.x64.me/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>alwinc_releases</id>
+            <name>Alwin Chin Releases</name>
+            <url>http://nexusrepo.x64.me/nexus/content/repositories/releases</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>alwinc_grouped_snapshots</id>
+            <name>Alwin Chin Public Snapshot Group Repo</name>
+            <url>http://nexusrepo.x64.me/nexus/content/groups/public-snapshots/</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <checksumPolicy>warn</checksumPolicy>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>alwinc_snapshots</id>
+            <name>Alwin Chin Snapshot</name>
+            <url>http://nexusrepo.x64.me/nexus/content/repositories/snapshots</url>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>twitter4j.org</id>
+            <name>twitter4j.org Repository</name>
+            <url>http://twitter4j.org/maven2</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+        <repository>
+            <id>The Buzz Media Maven Repository</id>
+            <name>The Buzz Media Maven Repository</name>
+            <url>http://maven.thebuzzmedia.com</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+        </repository>
+        <repository>
+            <id>foursquareapijava</id>
+            <name>Foursquare V2 API for Java Repository</name>
+            <url>http://foursquare-api-java.googlecode.com/svn/repository</url>
+        </repository>
+    </repositories>
+
+    <!-- ************* Plugin Repositories ************* -->
+    <pluginRepositories>
+        <pluginRepository>
+            <id>alwinc_plugin</id>
+            <name>Alwin Chin Public Plugins Group Repo</name>
+            <url>http://nexusrepo.x64.me/nexus/content/groups/public</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
+
+
+    <!-- *************** Distribution Management *************** -->
+    <distributionManagement>
+        <repository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>alwinc_releases</id>
+            <name>Alwin Chin Releases</name>
+            <url>http://nexusrepo.x64.me/nexus/content/repositories/releases</url>
+            <layout>default</layout>
+        </repository>
+        <snapshotRepository>
+            <uniqueVersion>false</uniqueVersion>
+            <id>alwinc_snapshots</id>
+            <name>Alwin Chin Snapshots</name>
+            <url>http://nexusrepo.x64.me/nexus/content/repositories/snapshots</url>
+            <layout>default</layout>
+        </snapshotRepository>
+    </distributionManagement>
+
+
     <licenses>
         <license>
             <name>MIT license</name>
